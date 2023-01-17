@@ -4,6 +4,7 @@ after preprocessing your data and analyzing the eeg signal to get roi in each su
 this program will claster the subjects to clusters according to common patterns in the time domain waveform of the signals using k means with the tslearn library. it creates a directory tree and save the results automatically. it can also evaluate a range of claster numbers and save figures of the metrics used to evaluate them in a dedicated directory tree.
 
 for more information on the tslearn library you can check: Tslearn, A Machine Learning Toolkit for Time Series Data
+and https://tslearn.readthedocs.io/en/stable/index.html
 
 ## how to use?
 
