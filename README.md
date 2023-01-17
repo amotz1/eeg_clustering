@@ -11,7 +11,7 @@ works for me in windows10.
 
 * clone the project
 * change the home folder
-* change the files datatarget1.mat, datatarget2.mat to the files you want to analyize
+* change the files datatarget1.mat, datatarget2.mat to the the 2 conditions you have (2 matrices of n subjects * m datapoints saved as a mat file) you want to analyize
 * run the main function
 * the program will ask you 2 questions. first if you want a clustering experiment or evaluating performance of range of clusters. 
 * second if you are doing a specific experiment or if you want a to vary n_init/max_iter_barycenter arguments. 
