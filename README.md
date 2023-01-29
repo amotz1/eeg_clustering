@@ -3,7 +3,8 @@
 after preprocessing your data and analyzing the eeg signal to get roi in each subject (one signal in each subject),
 this program will cluster the subjects to clusters according to common patterns in the time domain waveform of the signals using k means with the tslearn library. it creates a directory tree and save the results automatically. it can also evaluate a range of cluster numbers and save figures of the metrics used to evaluate them in a dedicated directory tree.
 
-for more information on the tslearn library you can check: Tslearn, A Machine Learning Toolkit for Time Series Data
+for more information on the tslearn library you can check: Tavenard, R., Faouzi, J., Vandewiele, G., Divo, F., Androz, G., Holtz, C., ... & Woods, E. (2020). Tslearn, a machine learning toolkit for time series data. The Journal of Machine Learning Research, 21(1), 4686-4691.
+
 and https://tslearn.readthedocs.io/en/stable/index.html
 
 ## how to use?
