@@ -1,0 +1,30 @@
+certifi @ file:///C:/b/abs_ac29jvt43w/croot/certifi_1665076682579/work/certifi
+cycler @ file:///tmp/build/80754af9/cycler_1637851556182/work
+fonttools==4.25.0
+h5py==3.7.0
+joblib @ file:///home/conda/feedstock_root/build_artifacts/joblib_1663332044897/work
+kiwisolver @ file:///C:/ci/kiwisolver_1653292359073/work
+llvmlite==0.39.1
+matplotlib @ file:///C:/b/abs_ae02atcfur/croot/matplotlib-suite_1667356722968/work
+mkl-fft==1.3.1
+mkl-random @ file:///C:/ci_310/mkl_random_1643050563308/work
+mkl-service==2.4.0
+munkres==1.1.4
+numba @ file:///C:/Users/builder/vallette/numba_0.56.3/numba_1666907656421/work
+numpy @ file:///C:/ci/numpy_and_numpy_base_1653574889210/work
+packaging @ file:///tmp/build/80754af9/packaging_1637314298585/work
+Pillow==9.2.0
+ply==3.11
+pyparsing @ file:///C:/Users/BUILDE~1/AppData/Local/Temp/abs_7f_7lba6rl/croots/recipe/pyparsing_1661452540662/work
+PyQt5==5.15.7
+PyQt5-sip @ file:///C:/Windows/Temp/abs_d7gmd2jg8i/croots/recipe/pyqt-split_1659273064801/work/pyqt_sip
+python-dateutil @ file:///tmp/build/80754af9/python-dateutil_1626374649649/work
+scikit-learn @ file:///C:/b/abs_eezai1guz5/croot/scikit-learn_1667587552067/work
+scipy==1.9.3
+sip @ file:///C:/Windows/Temp/abs_b8fxd17m2u/croots/recipe/sip_1659012372737/work
+six @ file:///tmp/build/80754af9/six_1644875935023/work
+threadpoolctl @ file:///home/conda/feedstock_root/build_artifacts/threadpoolctl_1643647933166/work
+toml @ file:///tmp/build/80754af9/toml_1616166611790/work
+tornado @ file:///C:/ci/tornado_1662476985533/work
+tslearn @ file:///D:/bld/tslearn_1642234981043/work
+wincertstore==0.2
