@@ -1,7 +1,6 @@
 certifi==2022.9.24
 cycler==0.11.0
 fonttools==4.25.0
-h5py==3.7.0
 joblib==1.2.0
 kiwisolver==1.4.2
 llvmlite==0.39.1
