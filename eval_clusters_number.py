@@ -16,7 +16,7 @@ def elobow_method(data, param):
         silhouette_avgs = []
         centroids = param['clusters_range']
 
-        if param['var_change'] == "i" and param["exp_type"] == "e":
+        if param['var_change'] == "i" and param["exp_type"] == "e" or param["exp_type"] == "ec":
             for n_init_ind in range(len(param['n_init'])):
                 print('n_init_ind ', n_init_ind)
                 exp_folder_path_key = 'exp_folder_path_{n_init_ind}'.format(n_init_ind=n_init_ind + 1)
@@ -41,7 +41,7 @@ def elobow_method(data, param):
                 plot_save_eval(param, inertias, silhouette_avgs, exp_folder_path_key)
                 os.chdir('..')
 
-        if param['var_change'] == "b" and param["exp_type"] == "e":
+        if param['var_change'] == "b" and param["exp_type"] == "e" or param["exp_type"] == "ec":
             for barycenter_ind in range(len(param['max_iter_barycenter'])):
                 print('barycenter_ind ', barycenter_ind)
                 exp_folder_path_key = 'exp_folder_path_{barycenter_ind}'.format(barycenter_ind=barycenter_ind + 1)

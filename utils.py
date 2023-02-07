@@ -4,6 +4,7 @@ from tslearn.clustering import TimeSeriesKMeans
 from tslearn.clustering import silhouette_score
 import matplotlib.pyplot as plt
 import os
+import numpy as np
 
 
 def plot_eval_c(dba_km, data, param, exp_folder_path_key):
@@ -25,14 +26,20 @@ def plot_eval_c(dba_km, data, param, exp_folder_path_key):
 
     print(dba_km.labels_)
     sz = data.shape[1]
+
     for cluster_index in range(param['n_clusters']):
+        plt.style.use('seaborn')
         plt.subplot(param['n_clusters'], 1,  cluster_index + 1)
         print("cluster index ", cluster_index)
-        for xx in data[dba_km.labels_ == cluster_index]:
-            plt.plot(xx.ravel(), "k-", alpha=0.2)
+
+        if cluster_index == 0:
+            plt.title("subjects signals devided to clusters")
+
+        for sub_sig in data[dba_km.labels_ == cluster_index]:
+            plt.plot(sub_sig.ravel(), alpha=0.4)
+            plt.xlabel('time samples')
+            plt.ylabel('mV')
             plt.xlim(0, sz)
-            plt.ylim(min(xx.ravel()), max(xx.ravel()))
-            plt.text(0.55, 0.85, 'cluster %d' % (cluster_index+1))
 
     print(param[exp_folder_path_key] + "clusters_results.png")
     plt.savefig(param[exp_folder_path_key] + "\\" + "clusters_results.png")
@@ -136,12 +143,23 @@ def check_param(param):
 
 
 def plot_save_data(data, param):
+    length = 10
+    height = int(np.round(data.shape[0], decimals=-1) / 10)
     os.chdir(param['exp_var_change_folder'])
-    for i in range(23):
-        plt.subplot(3, 10, i+1)
-        plt.plot(data[i, :], "k-")
+    plt.figure(figsize=(15, 5))
+    for sig_ind in range(data.shape[0]):
+        plt.style.use('seaborn')
+        plt.subplot(height, length, sig_ind+1)
+        if sig_ind == np.floor(length / 2):
+            plt.title("subjects after preprocessing")
+        if sig_ind >= ((height-1)*length)-1:
+            plt.xlabel('time samples')
 
-    plt.title("subjects after preprocessing", None, "center")
+        if sig_ind % 10 == 0:
+            plt.ylabel('mV')
+
+        plt.plot(data[sig_ind, :])
+
     plt.savefig(os.getcwd() + "\\" + "subjects_graphs.png")
     plt.close()
 
@@ -154,11 +172,19 @@ def plot_save_eval(param, inertias, silhouette_avgs, exp_folder_path_key):
     with open(param[exp_folder_path_key] + "\\" + "silhouette_avgs", "wb") as fp:
         pickle.dump(silhouette_avgs, fp)
 
-    plt.plot(param['clusters_range'], inertias, 'bx-')
+    plt.style.use('seaborn')
+    plt.plot(param['clusters_range'], inertias)
+    plt.title('clusters inertia')
+    plt.xlabel('cluster number')
+    plt.ylabel('inertia')
     plt.savefig(param[exp_folder_path_key] + "\\" + "sum_samples_centroid_distances.png")
     plt.close()
 
-    plt.plot(param['clusters_range'], silhouette_avgs, 'bx-')
+    plt.style.use('seaborn')
+    plt.plot(param['clusters_range'], silhouette_avgs)
+    plt.title('cluster silhouette_avg')
+    plt.xlabel('cluster number')
+    plt.ylabel('silhouette_avg')
     plt.savefig(param[exp_folder_path_key] + "\\" + "silhouette_avgs.png")
 
 

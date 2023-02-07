@@ -9,7 +9,7 @@ def k_means_clustering_experiment(data, param):
 
     if param["exp_type"] == "c" or param["exp_type"] == "ec":
 
-        if param['var_change'] == "i" and param["exp_type"] == "c":
+        if param['var_change'] == "i" and param["exp_type"] == "c" or param["exp_type"] == "ec":
             for n_init_ind in range(len(param['n_init'])):
                 dba_km = TimeSeriesKMeans(n_clusters=param['n_clusters'],
                                           n_init=param['n_init'][n_init_ind],
@@ -21,7 +21,7 @@ def k_means_clustering_experiment(data, param):
                 exp_folder_path_key = 'exp_folder_path_{n_init_ind}'.format(n_init_ind=n_init_ind + 1)
                 plot_eval_c(dba_km, data, param, exp_folder_path_key)
 
-        elif param['var_change'] == "b" and param["exp_type"] == "c":
+        elif param['var_change'] == "b" and param["exp_type"] == "c" or param["exp_type"] == "ec":
             for barycenter_ind in range(len(param['max_iter_barycenter'])):
                 dba_km = TimeSeriesKMeans(n_clusters=param['n_clusters'],
                                           n_init=param['n_init'],
@@ -33,7 +33,7 @@ def k_means_clustering_experiment(data, param):
                 exp_folder_path_key = 'exp_folder_path_{barycenter_ind}'.format(barycenter_ind=barycenter_ind + 1)
                 plot_eval_c(dba_km, data, param, exp_folder_path_key)
 
-        elif param['var_change'] == "s" and (param["exp_type"] == "ec" or param["exp_type"] == "c"):
+        elif param['var_change'] == "s" and (param["exp_type"] == "c" or param["exp_type"] == "ec"):
             print("starting the timeseriesKmeans algorithm")
             dba_km = TimeSeriesKMeans(n_clusters=param['n_clusters'],
                                       n_init=param['n_init'],
