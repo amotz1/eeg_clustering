@@ -16,7 +16,11 @@ def k_means_clustering_experiment(data, param):
                                           metric=param['metric'],
                                           verbose=False,
                                           max_iter_barycenter=param['max_iter_barycenter'],
-                                          random_state=param['seed'])
+                                          random_state=param["random_state"],
+                                          tol=param["tol"],
+                                          n_jobs=param["n_jobs"],
+                                          init=param["init"],
+                                          max_iter=param["max_iter"])
 
                 exp_folder_path_key = 'exp_folder_path_{n_init_ind}'.format(n_init_ind=n_init_ind + 1)
                 plot_eval_c(dba_km, data, param, exp_folder_path_key)
@@ -28,7 +32,11 @@ def k_means_clustering_experiment(data, param):
                                           metric=param['metric'],
                                           verbose=False,
                                           max_iter_barycenter=param['max_iter_barycenter'][barycenter_ind],
-                                          random_state=param['seed'])
+                                          random_state=param["random_state"],
+                                          tol=param["tol"],
+                                          n_jobs=param["n_jobs"],
+                                          init=param["init"],
+                                          max_iter=param["max_iter"])
 
                 exp_folder_path_key = 'exp_folder_path_{barycenter_ind}'.format(barycenter_ind=barycenter_ind + 1)
                 plot_eval_c(dba_km, data, param, exp_folder_path_key)
@@ -40,7 +48,11 @@ def k_means_clustering_experiment(data, param):
                                       metric=param['metric'],
                                       verbose=False,
                                       max_iter_barycenter=param['max_iter_barycenter'],
-                                      random_state=param['seed'])
+                                      random_state=param["random_state"],
+                                      tol=param["tol"],
+                                      n_jobs=param["n_jobs"],
+                                      init=param["init"],
+                                      max_iter=param["max_iter"])
 
             exp_folder_path_key = 'exp_folder_path'
             os.chdir(param[exp_folder_path_key])

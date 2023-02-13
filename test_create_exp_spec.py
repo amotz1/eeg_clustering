@@ -10,7 +10,8 @@ def test_create_exp_spec():
 
     param = {"data": data_target1, "exp_number": 555, "home_folder": "E:\\omer",
              "down_sample_factor": 2, "metric": "dtw", "n_init": 2, "max_iter_barycenter": 10,
-             "n_clusters": 4, "clusters_range": [2, 7], "seed": 0}
+             "n_clusters": 4, "clusters_range": [2, 7], "random_state": 0, "max_iter": 50 ,"n_jobs": None, "tol": 10**-6,
+             "verbose": 0, "init": "k-means++", "metric_params": None, "dtw_inertia": False}
 
     param = config(param)
 

@@ -89,8 +89,29 @@ def param_2_file(param, text_file):
         clusters_range = param["clusters_range"]
         text_file.write(f"clusters_range {clusters_range} \n")
 
-    seed = param["seed"]
-    text_file.write(f"seed {seed} \n")
+    random_state = param["random_state"]
+    text_file.write(f"random_state {random_state} \n")
+
+    init = param["init"]
+    text_file.write(f"init {init} \n")
+
+    max_iter = param["max_iter"]
+    text_file.write(f"max_iter {max_iter} \n")
+
+    dtw_inertia = param["dtw_inertia"]
+    text_file.write(f"dtw_inertia {dtw_inertia} \n")
+
+    metric_params = param["metric_params"]
+    text_file.write(f"metric_params {metric_params} \n")
+
+    tol = param["tol"]
+    text_file.write(f"tol {tol} \n")
+
+    verbose = param["verbose"]
+    text_file.write(f"verbose {verbose} \n")
+
+    n_jobs = param["n_jobs"]
+    text_file.write(f"n_jobs {n_jobs} \n")
 
     text_file.close()
 
@@ -107,6 +128,14 @@ def check_param(param):
         assert type(param['metric']) == str, "not vary so need to be str"
         assert type(param['n_clusters']) == int, "n_clusters need to be int"
         assert type(param['clusters_range']) == list, "clusters range need to be a list"
+        assert type(param['tol']) == float, "tol must be float"
+        assert type(param['verbose']) == int, "verbose must be int"
+        assert type(param['n_jobs']) == int or None, "n_jobs can be int or None"
+        assert type(param['metric_params']) == dict or None, "metric params need to be dict or None"
+        assert type(param['dtw_inertia']) == bool, "dtw_inertia need to be a bool"
+        assert type(param['init']) == str or np.ndarray, "init must be str or numpy array"
+        assert type(param['random_state']) == int or np.random.RandomState, "random_state must be int or numpy " \
+                                                                            "random state"
 
     elif param['var_change'] == "b":
         assert type(param['n_init']) == int, "n_init do not vary so need to be an int"
@@ -117,6 +146,14 @@ def check_param(param):
         assert type(param['metric']) == str, "metric do not vary so need to be str"
         assert type(param['n_clusters']) == int, "n_clusters need to be int"
         assert type(param['clusters_range']) == list, "clusters range need to be a list"
+        assert type(param['tol']) == float, "tol must be float"
+        assert type(param['verbose']) == int, "verbose must be int"
+        assert type(param['n_jobs']) == int or None, "n_jobs can be int or None"
+        assert type(param['metric_params']) == dict or None, "metric params need to be dict or None"
+        assert type(param['dtw_inertia']) == bool, "dtw_inertia need to be a bool"
+        assert type(param['init']) == str or np.ndarray, "init must be str or numpy array"
+        assert type(param['random_state']) == int or np.random.RandomState, "random_state must be int or numpy " \
+                                                                            "random state"
 
     elif param['var_change'] == "m":
         assert type(param['n_init']) == list, "n_init do not vary so need to be an int"
@@ -127,6 +164,14 @@ def check_param(param):
         assert type(param['metric']) == list, "metric vary so need to be a list"
         assert type(param['n_clusters']) == int, "n_clusters need to be int"
         assert type(param['clusters_range']) == list, "clusters range need to be a list"
+        assert type(param['tol']) == float, "tol must be float"
+        assert type(param['verbose']) == int, "verbose must be int"
+        assert type(param['n_jobs']) == int or None, "n_jobs can be int or None"
+        assert type(param['metric_params']) == dict or None, "metric params need to be dict or None"
+        assert type(param['dtw_inertia']) == bool, "dtw_inertia need to be a bool"
+        assert type(param['init']) == str or np.ndarray, "init must be str or numpy array"
+        assert type(param['random_state']) == int or np.random.RandomState, "random_state must be int or numpy " \
+                                                                            "random state"
 
     elif param['var_change'] == "s":
         assert type(param['n_init']) == int, "n_init do not vary so need to be an int"
@@ -137,7 +182,15 @@ def check_param(param):
         assert type(param['metric']) == str, "metric do not vary so need to be str"
         assert type(param['n_clusters']) == int, "n_clusters need to be int"
         assert type(param['clusters_range']) == list, "clusters range need to be a list"
-
+        assert type(param['tol']) == float, "tol must be float"
+        assert type(param['verbose']) == int, "verbose must be int"
+        assert type(param['n_jobs']) == int or param['n_jobs'] is None, "n_jobs can be int or None"
+        assert type(param['metric_params']) == dict or param['metric_params'] is None, "metric params need to " \
+                                                                                       "be dict or None"
+        assert type(param['dtw_inertia']) == bool, "dtw_inertia need to be a bool"
+        assert type(param['init']) == str or np.ndarray, "init must be str or numpy array"
+        assert type(param['random_state']) == int or np.random.RandomState, "random_state must be int or numpy " \
+                                                                            "random state"
     else:
         print("unspecified experiment")
 
@@ -145,6 +198,7 @@ def check_param(param):
 def plot_save_data(data, param):
     length = 10
     height = int(np.round(data.shape[0], decimals=-1) / 10)
+    reminder = int(np.round(data.shape[0], decimals=-1) - data.shape[0])
     os.chdir(param['exp_var_change_folder'])
     plt.figure(figsize=(15, 5))
     for sig_ind in range(data.shape[0]):
@@ -152,7 +206,7 @@ def plot_save_data(data, param):
         plt.subplot(height, length, sig_ind+1)
         if sig_ind == np.floor(length / 2):
             plt.title("subjects after preprocessing")
-        if sig_ind >= ((height-1)*length)-1:
+        if sig_ind >= ((height-1)*length)-reminder:
             plt.xlabel('time samples')
 
         if sig_ind % 10 == 0:
