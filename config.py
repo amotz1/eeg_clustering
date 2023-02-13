@@ -17,6 +17,7 @@ def config(param):
     param["number_of_subjects"] = number_of_subjects
     param["exp_type"] = exp_type
     param["var_change"] = var_change
+    param["num_cond"] = "cond_1"
 
     check_param(param)
 

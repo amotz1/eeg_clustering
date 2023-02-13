@@ -28,7 +28,11 @@ def elobow_method(data, param):
                                           metric=param['metric'],
                                           verbose=False,
                                           max_iter_barycenter=param['max_iter_barycenter'],
-                                          random_state=0)
+                                          random_state=0,
+                                          tol=param["tol"],
+                                          n_jobs=param["n_jobs"],
+                                          init=param["init"],
+                                          max_iter=param["max_iter"])
 
                     km = km.fit(data)
                     inertias.append(km.inertia_)
@@ -53,7 +57,11 @@ def elobow_method(data, param):
                                           metric=param['metric'],
                                           verbose=False,
                                           max_iter_barycenter=param['max_iter_barycenter'][barycenter_ind],
-                                          random_state=0)
+                                          random_state=0,
+                                          tol=param["tol"],
+                                          n_jobs=param["n_jobs"],
+                                          init=param["init"],
+                                          max_iter=param["max_iter"])
 
                     km = km.fit(data)
                     inertias.append(km.inertia_)
@@ -75,7 +83,11 @@ def elobow_method(data, param):
                                       metric=param['metric'],
                                       verbose=False,
                                       max_iter_barycenter=param['max_iter_barycenter'],
-                                      random_state=0)
+                                      random_state=0,
+                                      tol=param["tol"],
+                                      n_jobs=param["n_jobs"],
+                                      init=param["init"],
+                                      max_iter=param["max_iter"])
 
                 km = km.fit(data)
                 inertias.append(km.inertia_)

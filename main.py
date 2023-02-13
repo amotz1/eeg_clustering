@@ -13,7 +13,7 @@ from utils import load_data
 
 def main(param):
     down_sample_data = scipy.signal.decimate(param["data"], param["down_sample_factor"])
-    np.random.seed(param['seed'])
+    np.random.seed(param["random_state"])
     down_sample_standardized_data = TimeSeriesScalerMeanVariance().fit_transform(down_sample_data)
 
     plot_save_data(down_sample_standardized_data, param)
@@ -27,9 +27,11 @@ if __name__ == '__main__':
     (data_target1, data_target2) = data
     exp_data = data_target1
 
-    args = {"data": exp_data, "exp_number": 5, "home_folder": "E:\\omer",
+    args = {"data": exp_data, "exp_number": 82, "home_folder": "E:\\omer",
             "down_sample_factor": 2, "metric": "dtw", "n_init": 2, "max_iter_barycenter": 10,
-            "n_clusters": 3, "clusters_range": [2, 3, 4, 5, 6], "seed": 0}
+            "n_clusters": 2, "clusters_range": [2, 3], "random_state": 0, "verbose": 0,
+            "tol": 10**-6, "n_jobs": None, "init": "k-means++", 'max_iter': 50,
+            "dtw_inertia": False, "metric_params": None}
 
     if (exp_data == data_target1).all():
         args['num_cond'] = 'cond_1'

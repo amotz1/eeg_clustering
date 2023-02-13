@@ -6,13 +6,13 @@ kiwisolver==1.4.2
 llvmlite==0.39.1
 matplotlib==3.5.3
 mkl-random==1.2.2
+h5py==3.8.0
 mkl-service==2.4.0
 munkres==1.1.4
 numba==0.56.3
-numpy==1.21.5
+numpy
 packaging==21.3
 Pillow==9.2.0
-pip==22.2.2
 ply==3.11
 pyparsing==3.0.9
 PyQt5==5.15.7
