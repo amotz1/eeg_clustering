@@ -25,7 +25,7 @@ works for me in windows10.
 * you can change some other parameters in the algorithm according to the tslrean documentation and see if it gives you better results. 
 
 ### issues
-*you can use this code now only if you add a mat file of your data in subjects*times samples matrix. if you have your data in other file types you need to do your on loading function
+* you can use this code now only if you add a mat file of your data in subjects*times samples matrix. if you have your data in other file types you need to do your on loading function
 * right now if you are doing both experiments (ec) you can use just one type of experiment for both of them. eventually i use mainly the specific option and i see no reason to use the ec option at all.
 
 
