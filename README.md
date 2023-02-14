@@ -7,7 +7,7 @@ for more information on the tslearn library, you can check: Tavenard, R., Faouzi
 
 and https://tslearn.readthedocs.io/en/stable/index.html
 
-this is how the graph of the clustering can look like at the end:
+this is how the graph of the clusters can look like at the end:
 
 <img src="https://github.com/amotz1/eeg_clustering/blob/master/clusters_results.png">
 
