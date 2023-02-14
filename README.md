@@ -7,6 +7,10 @@ for more information on the tslearn library, you can check: Tavenard, R., Faouzi
 
 and https://tslearn.readthedocs.io/en/stable/index.html
 
+this is how the graph of the clustering can look like at the end:
+
+<img src="https://github.com/amotz1/eeg_clustering/blob/master/clusters_results.png">
+
 ## how to use?
 
 works for me in windows10.
@@ -17,6 +21,11 @@ works for me in windows10.
 * run the main function, the program will ask you 2 questions. 
 * first if you want a clustering experiment or an experiment that evaluate the performance of range of cluster numbers. 
 * second if you are doing a specific experiment or if you want a to vary n_init/max_iter_barycenter arguments. 
-* you can press c if you want clustering experiment and e if you want evaluation experiment s if you want a specific experiment and b/i if you want an experiment that change one of these variables 
+* you can press c if you want clustering experiment and e if you want evaluation experiment ec if you want both. you can then press s if you want a specific experiment and b/i if you want an experiment that change one of these variables 
 * you can change some other parameters in the algorithm according to the tslrean documentation and see if it gives you better results. 
+
+### issues
+
+* right now if you are doing both experiments (ec) you can use just one type of experiment for both of them. eventually i use mainly the specific option and i see no reason to use the ec option at all.
+
 
